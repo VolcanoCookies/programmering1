@@ -11,6 +11,12 @@ public class TestPolyline {
 		polyline.addEdge(new Point("E", 2, 4));
 		polyline.addEdgeAfter("B", new Point("C", 4, 8));
 		
+		Polyline.PolylineIterator iterator = polyline.iterator();
+		while (iterator.hasNext()) {
+			System.out.println(iterator.edge().toString());
+			iterator.next();
+		}
+		
 		polyline.setWidth(2);
 		polyline.setColor("red");
 		System.out.println(polyline.getColor());
