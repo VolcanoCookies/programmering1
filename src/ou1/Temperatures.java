@@ -63,7 +63,6 @@ public class Temperatures {
 			System.out.println("Highest: " + maxT[week]);
 			System.out.println("Sum: " + sumT[week]);
 			System.out.println("Average: " + avgT[week]);
-			
 		}
 		
 		double minTemp = minT[0];
@@ -75,7 +74,7 @@ public class Temperatures {
 			if (minTemp > minT[week]) {
 				minTemp = minT[week];
 			}
-			if (maxTemp > maxT[week]) {
+			if (maxTemp < maxT[week]) {
 				maxTemp = maxT[week];
 			}
 			sumTemp += sumT[week];
