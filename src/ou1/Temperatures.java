@@ -39,9 +39,12 @@ public class Temperatures {
 		double[] minT = new double[weeks];
 		double[] maxT = new double[weeks];
 		double[] sumT = new double[weeks];
-		double[] avgT = new double[weeks];
+		double[] medT = new double[weeks];
 		
 		for (int week = 0; week < weeks; week++) {
+			
+			// Calculate the information for the current week
+			
 			minT[week] = t[week][0];
 			maxT[week] = t[week][0];
 			sumT[week] = t[week][0];
@@ -55,20 +58,22 @@ public class Temperatures {
 				}
 				sumT[week] += current;
 			}
-			avgT[week] = sumT[week] / t[week].length;
+			medT[week] = sumT[week] / t[week].length;
+			
+			// Display the information for the current week
 			
 			System.out.println("\n==============================");
 			System.out.println("Measurements for week #" + (week + 1));
 			System.out.println("Lowest: " + minT[week]);
 			System.out.println("Highest: " + maxT[week]);
 			System.out.println("Sum: " + sumT[week]);
-			System.out.println("Average: " + avgT[week]);
+			System.out.println("Average: " + medT[week]);
 		}
 		
 		double minTemp = minT[0];
 		double maxTemp = maxT[0];
 		double sumTemp = sumT[0];
-		double avgTemp = 0;
+		double medTemp;
 		
 		for (int week = 0; week < weeks; week++) {
 			if (minTemp > minT[week]) {
@@ -80,14 +85,16 @@ public class Temperatures {
 			sumTemp += sumT[week];
 		}
 		
-		avgTemp = sumTemp / (weeks * measurementsPerWeek);
+		medTemp = sumTemp / (weeks * measurementsPerWeek);
+		
+		// Display the information for the whole period
 		
 		System.out.println("\n==============================");
 		System.out.println("Measurements for the whole period");
 		System.out.println("Lowest: " + minTemp);
 		System.out.println("Highest: " + maxTemp);
 		System.out.println("Sum: " + sumTemp);
-		System.out.println("Average: " + avgTemp);
+		System.out.println("Average: " + medTemp);
 		
 	}
 }

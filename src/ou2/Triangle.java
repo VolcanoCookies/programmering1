@@ -20,7 +20,7 @@ public class Triangle {
 	 */
 	public static double area(double a, double b, double c, double p) {
 		double halfPeri = p / 2;
-		return Math.sqrt(halfPeri * ((halfPeri - a) * (halfPeri - b) * (halfPeri - c)));
+		return Math.sqrt(halfPeri * (halfPeri - a) * (halfPeri - b) * (halfPeri - c));
 	}
 	
 	/**
