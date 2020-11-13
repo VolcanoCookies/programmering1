@@ -1,5 +1,6 @@
 package ou5;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class ChoosePolyline {
@@ -42,6 +43,11 @@ public class ChoosePolyline {
 		
 	}
 	
+	/**
+	 * Create a random polyline with between 2 and 8 points and a random color
+	 *
+	 * @return the random polyline
+	 */
 	private static Polyline randomPolyline() {
 		Point[] edges = new Point[2 + rand.nextInt(7)];
 		String[] names = new String[edges.length];
@@ -60,16 +66,19 @@ public class ChoosePolyline {
 	}
 	
 	private static boolean containsName(String[] names, Point point) {
-		for (int i = 0; i < names.length; i++) {
-			if (names[i] == null) {
-				return false;
-			} else if (names[i].equals(point.getName())) {
+		for (String name : names) {
+			if (Objects.equals(name, point.getName())) {
 				return true;
 			}
 		}
 		return false;
 	}
 	
+	/**
+	 * Create a random point with x and y between 0 and 10 and a random one letter name
+	 *
+	 * @return the random point
+	 */
 	private static Point randomPoint() {
 		return new Point(String.valueOf(ALPHABET[rand.nextInt(ALPHABET.length)]),
 				rand.nextInt(11),

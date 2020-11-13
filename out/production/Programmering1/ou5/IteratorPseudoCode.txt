@@ -1,0 +1,21 @@
+FÖRVILLKOR
+vektor edges av alla punkter
+
+EFTERVILLKOR
+alla punkter returnerade samt en exception kastad i slutet
+
+PSEUDOKOD
+current = -1
+
+if edges.len > 0
+    current = 0
+
+while current != -1
+
+    if current >= 0 && current < edges.len - 1
+        return edges[current]
+        edges++
+    else
+        current = -1
+
+return exception

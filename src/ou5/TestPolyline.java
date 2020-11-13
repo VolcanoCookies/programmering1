@@ -6,10 +6,11 @@ public class TestPolyline {
 		
 		Polyline polyline = new Polyline();
 		polyline.addEdge(new Point("A", 1, 2));
-		polyline.addEdge(new Point("B", 3, 6));
-		polyline.addEdge(new Point("D", 7, 12));
-		polyline.addEdge(new Point("E", 2, 4));
-		polyline.addEdgeAfter("B", new Point("C", 4, 8));
+		polyline.addEdge(new Point("C", 3, 6));
+		polyline.addEdge(new Point("E", 7, 12));
+		polyline.addEdge(new Point("F", 2, 4));
+		polyline.addEdgeAfter("C", new Point("D", 4, 8));
+		polyline.addEdgeBefore("C", new Point("B", 6, 3));
 		
 		Polyline.PolylineIterator iterator = polyline.iterator();
 		while (iterator.hasNext()) {
@@ -22,6 +23,9 @@ public class TestPolyline {
 		System.out.println(polyline.getColor());
 		System.out.println(polyline.getLength());
 		System.out.println(polyline.getWidth());
+		
+		polyline.remove("B");
+		System.out.println(polyline.toString());
 		
 	}
 	

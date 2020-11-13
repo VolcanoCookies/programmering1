@@ -1,0 +1,85 @@
+FÖRVILLKOR
+två strängar av naturliga heltal
+
+EFTERVILLKOR
+en sträng av additionen mellan de två talen
+ELLER
+en sträng av subtrationen mellan de två talen
+
+PSEUDOKOD
+
+carry = false
+result
+
+if n1.len < n2.len
+    n1 = "0" * (n2.len - n1.len) + n1
+else if n1.len > n2.len
+    n2 = "0" * (n1.len - n2.len) + n2
+
+assert n1.len = n2.len
+
+for Char c1 in n1 & Char c2 in n2
+    res = number(c1) + number(c2)
+    if carry
+        res += 1
+    if res.len > 1
+        carry = true
+
+    result = res.charAt(0) + result
+
+if carry
+    result = "1" + result
+
+return result
+
+ELLER
+
+carry = false
+negative = false
+result
+
+if n1.len < n2.len
+    t = n2
+    n2 = n1
+    n1 = t
+    n1 = "0" * (n2.len - n1.len) + n1
+    negative = true
+else if n1.len > n2.len
+    n2 = "0" * (n1.len - n2.len) + n2
+else
+    fori Char c1 in n1 & Char c2 in n2
+        if c1 < c2
+            t = n2
+            n2 = n1
+            n1 = t
+            n1 = "0" * (n2.len - n1.len) + n1
+            negative = true
+        else if c1 > c2
+            break
+        else if i + 1 == n1.len
+            return "0"
+
+assert n1.len = n2.len
+
+for Char c1 in n1 & Char c2 in n2
+
+    if carry
+        c2 += 1
+
+    if c1 < c2
+        if carry
+            c1 -= 1
+        res = c1 + 10 - c2
+        carry = true
+    else
+        if carry
+            c1 -= 1
+        res = c1 - c2
+        carry = false
+
+    result = res + result
+
+if negative
+    return "-" + result
+else
+    return result

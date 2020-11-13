@@ -1,0 +1,25 @@
+FÖRVILLKOR
+vektor a med distans från X till Un för alla n
+vektor b med distans mellan Un och Vm för alla n & m
+vektor c med distans mellan Vm och Y för alla m
+
+EFTERVILLKOR
+en vektor si av längden 2 innehållande index av Un och Vm för kortast avstånd
+ELLER
+en variabel min med den kortaste vägen
+
+STEG I ALGORITMEN
+sätt min till a[0]
+sätt si till {0,0}
+
+för alla a
+    om a[i] < min
+        för alla b[i]
+            om a[i] + b[i][j] < min
+                för alla c[j]
+                    om a[i] + b[i][j] + c[j] < min
+                        min = a[i] + b[i][j] + c[j]
+                        si[0] = i
+                        si[1] = j
+
+returnera si eller min

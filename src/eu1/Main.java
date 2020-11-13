@@ -1,6 +1,46 @@
 package eu1;
 
+import java.util.Random;
+
 public class Main {
+	
+	public static void main(String[] args) {
+		
+		int correct = 0;
+		int incorrect = 0;
+		
+		for (int j = 0; j < 10000; j++) {
+			
+			Random random = new Random();
+			
+			int[] values = new int[19];
+			
+			int min = random.nextInt(100);
+			
+			for (int i = 0; i < values.length; i++) {
+				values[i] = (min + 1 + random.nextInt(100));
+			}
+			
+			values[16] = min;
+			
+			if (min != min(values)) {
+				
+				System.out.println(values.length);
+				System.out.println(min);
+				System.out.println(min(values));
+				
+				incorrect++;
+				
+			} else {
+				correct++;
+			}
+			
+		}
+		
+		System.out.println(correct + " correct");
+		System.out.println(incorrect + " incorrect");
+		
+	}
 	
 	// min returnerar det minsta elementet i en sekventiell samling.
 	// Om samlingen är tom, kastas ett undantag av typen IllegalArgumentException.
@@ -15,9 +55,9 @@ public class Main {
 		int antaletOparadeElement = sekvens.length % 2;
 		int antaletTankbaraElement = antaletPar + antaletOparadeElement;
 		int[] delsekvens = new int[antaletTankbaraElement];
-		int i = 0;
-		int j = 0;
-		while (sekvens.length > 1) {
+		int i;
+		int j;
+		while (antaletPar > 0) {
 			// skilj ur en delsekvens med de tänkbara elementen
 			i = 0;
 			j = 0;
@@ -26,7 +66,7 @@ public class Main {
 				i += 2;
 			}
 			if (antaletOparadeElement == 1) {
-				delsekvens[j] = sekvens[sekvens.length - 1];
+				delsekvens[j] = sekvens[antaletPar * 2];
 			}
 			// utgå nu ifrån delsekvensen
 			sekvens = delsekvens;
