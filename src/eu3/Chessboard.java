@@ -209,7 +209,7 @@ public class Chessboard {
 			if (isValidField(r, c)) {
 				consumer.accept(fields[r - FIRST_ROW][c - FIRST_COLUMN]);
 			}
-			w
+			
 			c -= 2;
 			if (isValidField(r, c)) {
 				consumer.accept(fields[r - FIRST_ROW][c - FIRST_COLUMN]);
